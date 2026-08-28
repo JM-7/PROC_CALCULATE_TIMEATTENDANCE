@@ -1,5 +1,9 @@
-#API 호출 예제
-https://kauth.kakao.com/oauth/authorize?client_id=229bd2a9377dc1fad7c3a4eb1d924720&redirect_uri=https://example.com/oauth&response_type=code&scope=talk_message
+#API 호출 예제 리프레시 코드 순선
+
+(1) https://kauth.kakao.com/oauth/authorize?client_id=229bd2a9377dc1fad7c3a4eb1d924720&redirect_uri=https://example.com/oauth&response_type=code&scope=talk_message
+(2) 코드값 으로 POST https://kauth.kakao.com/oauth/tokengrant_type=authorization_codeclient_id={REST_API_KEY}redirect_uri={REDIRECT_URI}code={복사한 code}
+(3) POST https://kauth.kakao.com/oauth/tokengrant_type=authorization_codeclient_id=229bd2a9377dc1fad7c3a4eb1d924720&redirect_uri=https://example.com/&code=AEix-2ygfl9dJIQFPxXKFR5WbFlpcYq35z1YfqDWkpiqkkrDvxFNmwAAAAQKFyEtAAABoEaTo-PRDLJpR7eCqA
+curl -v -X POST https://kauth.kakao.com/oauth/token -d "grant_type=authorization_code" -d "client_id={REST_API_KEY}" -d "redirect_uri={REDIRECT_URI}" -d "code={받은_인가코드}"
 
 # 카카오톡 주식 브리핑 봇
 
